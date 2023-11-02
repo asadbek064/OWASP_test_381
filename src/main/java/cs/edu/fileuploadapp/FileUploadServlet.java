@@ -52,8 +52,11 @@ public class FileUploadServlet extends HttpServlet {
         }
 
         String message = "Result";
-        String content = new Scanner(new File(uploadFilePath + File.separator + fileName)).useDelimiter("\\Z").next();
-        response.getWriter().write(message + "<BR>" + content);
+        // reading the file content is resulting in 500 status code and scanner failed
+        // String content = new Scanner(new File(uploadFilePath + File.separator + fileName)).useDelimiter("\\Z").next();
+
+
+        response.getWriter().write(message + "<BR>" + "File uploaded");
 
         /****** Integrate remote DB connection with this servlet, uncomment and modify the code below *******
          //ADD YOUR CODE HERE!
